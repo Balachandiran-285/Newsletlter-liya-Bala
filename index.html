@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Newsletter KIYA</title>
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        :root {
+            /* primary colors */
+            --hue-primary: 202;
+            --saturation-primary: 67%;
+            --lightness-primary: 52%;
+            --clr-primary: hsl(var(--hue-primary), var(--saturation-primary), var(--lightness-primary));
+            --clr-primary-light: hsl(var(--hue-primary), var(--saturation-primary), 90%);
+            /* secondary colors */
+            --hue-secondary: 96;
+            --saturation-secondary: 100%;
+            --lightness-secondary: 41%;
+            --clr-secondary: hsl(var(--hue-secondary), var(--saturation-secondary), var(--lightness-secondary));
+            --clr-secondary-light: hsl(var(--hue-secondary), var(--saturation-secondary), 70%);
+            --clr-light: hsl(0, 0%, 98%);
+            --txt-dark: hsl(0, 0%, 22%);
+            /* dark colors */
+            --hue-dark: 203;
+            --saturation-dark: 63%;
+            --lightness-dark: 17%;
+            --clr-dark: hsl(var(--hue-dark), var(--saturation-dark), var(--lightness-dark));
+            --white: #fff;
+        }
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+        }
+        /* utility classes */
+        .mt-1 {
+            margin-top: 1rem;
+        }
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+        .my-1 {
+            margin-block: 1rem
+        }
+        .pl-0 {
+            padding-left: 0;
+        }
+        .d-flex {
+            display: flex;
+        }
+        .flex-column {
+            flex-direction: column;
+        }
+        .text-center {
+            text-align: center;
+        }
+        .text-right {
+            text-align: right;
+        }
+        .text-justify {
+            text-align: justify;
+        }
+        .btn {
+            padding: 0.25em 0.75em;
+        }
+        .btn-white {
+            background-color: var(--clr-light);
+            color: var(--clr-primary);
+        }
+        .btn-primary {
+            background-color: var(--clr-primary);
+            color: var(--clr-light);
+        }
+        .align-items-center {
+            align-items: center;
+        }
+        .align-self--start {
+            align-self: start;
+        }
+        .position-relative {
+            position: relative;
+        }
+        .position-absolute {
+            position: absolute;
+        }
+        ul.list-unstyled {
+            list-style: none;
+        }
+        header {
+            align-items: start;
+            justify-content: space-between;
+        }
+        main {
+            display: grid;
+            place-items: center;
+        }
+        body {
+            background-color: lightgray;
+            /* margin: 0; */
+            font-family: 'Helvetica', 'Arial', sans-serif;
+        }
+        p {
+            font-size: 0.9rem;
+            line-height: 1.3;
+        }
+        h1,
+        h4 {
+            line-height: 1.5;
+        }
+        img {
+            max-width: 100%;
+            /* display: block; */
+        }
+        a {
+            text-decoration: none;
+        }
+        .wrapper {
+            width: 680px;
+            /* height: 100vh; */
+            background-color: var(--clr-light);
+            padding: 2.5rem;
+            position: relative;
+        }
+        .header_info--tile {
+            color: var(--clr-primary);
+        }
+        .header_info--date {
+            background-color: var(--clr-primary);
+            font-size: 2rem;
+            padding: 0.6em;
+            text-transform: uppercase;
+            color: var(--clr-light);
+            font-weight: normal;
+        }
+        .banner_img {
+            width: 95%;
+            margin-left: auto;
+            display: block;
+        }
+        .article-one {
+            width: 55%;
+            aspect-ratio: 1;
+            background-color: var(--clr-primary);
+            padding: 2rem;
+            color: var(--clr-light);
+            /* position: absolute; */
+            left: 0;
+            top: 40%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .article-two {
+            gap: 5%;
+            align-items: end;
+            margin-top: 3rem;
+            color: var(--clr-dark);
+        }
+        .article-two--img {
+            height: fit-content;
+            flex: 0 0 55%;
+            width: 55%;
+        }
+        .article-two--news {
+            flex: 0 0 40%;
+        }
+        /* page 2 */
+        .page__two {
+            gap: 5%;
+        }
+        .col-left {
+            flex: 0 0 45%;
+        }
+        .col-right {
+            flex: 0 0 50%;
+        }
+        header.col-left--header img {
+            width: 100%;
+            display: block;
+        }
+        article.col-left--article {
+            background-color: var(--clr-primary);
+            padding: 2rem 1.5rem;
+            color: var(--clr-light);
+            margin-bottom: 3rem;
+        }
+        .col-left--article h1,
+        .col-left--article li {
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        .col-left--article li {
+            padding-left: 1rem;
+            border-left: 3px solid var(--clr-light);
+        }
+        /* .col-left--footer img {
+            width: 40%;
+        } */
+        .reach_us {
+            columns: 2
+        }
+        .reach_us div+div {
+            margin-top: 1rem;
+        }
+        .icon {
+            flex: 0 1 10%;
+        }
+        .reach_us a {
+            color: var(--clr-dark);
+            font-size: 0.8rem;
+            margin-left: 0.5rem;
+        }
+        .col-right hr {
+            height: 2px;
+            background-color: var(--clr-primary);
+            margin-block: 0.5rem;
+        }
+        .col-right-article--two {
+            background-color: var(--clr-primary);
+            color: var(--white);
+            padding: 1rem 2rem;
+            bottom: 0;
+            top: 34%;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <div class="wrapper my-1">
+            <header class="d-flex">
+                <img class="logo" src="assets/images/kiya-logo-with-tagline.png" alt="Kiya-Logo-1">
+                <div class="header_info">
+                    <h1 class="header_info--tile text-right">Newsletter</h1>
+                    <h1 class="header_info--date text-center">June 2023</h1>
+                </div>
+            </header>
+            <img class="banner_img" src="assets/images/Rajesh_Mirjankar-interview.jpeg"
+                alt="Rajesh_Mirjankar-interview img">
+            <article class="article-one d-flex position-absolute">
+                <h4 class="mb-1">Bharatmeta Gets the Spotlight at Vivatech, Paris</h4>
+                <p class="mb-1 text-justify">Rajesh Mirjankar, CEO & MD, Kiya.ai was invited by the Ministry of
+                    Electronics and Information Technology (MEITY) as a part of the official Indian delegation to be the
+                    keynote speaker at Europe's biggest startup and technology event, VivaTech 2023, in Paris, where he
+                    spoke extensively on 'Bharatmeta: Commerce & Culture in Metaverse' and discussed the rise of Indian
+                    tech startups in the domain of the Metaverse.</p>
+                <a href="" class="btn btn-white align-self--start">Read more</a>
+            </article>
+            <article class="article-two d-flex">
+                <img class="article-two--img" src="assets/images/Group-photo.jpg" alt="Group-photo img">
+                <div class="article-two--news d-flex flex-column">
+                    <h4 class="mb-1">Rajesh Mirjankar Attends G20 Digital Innovation Alliance Roadshow in Dubai as a
+                        Panelist</h4>
+                    <p class="mb-1 text-justify">Rajesh Mirjankar, MD & CEO of Kiya.ai, was invited to G20 Digital
+                        Innovation Alliance Roadshow in Dubai, where he shared valuable insights on future trends,
+                        highlighted the significance of autonomous mobility programs, and showcased the limitless
+                        potential of digital innovation. The panel discussion was expertly moderated by Siby Sudhakaran,
+                        Secretary General of the IBPC Dubai and Founder of Startup Middle East.</p>
+                    <a href="" class="btn btn-primary align-self--start">Read more</a>
+                </div>
+            </article>
+        </div>
+        <div class="wrapper mb-1">
+            <section class="page__two d-flex">
+                <aside class="col-left">
+                    <header class="col-left--header">
+                        <img src="assets/images/IBIS-RANKING.jpg" alt="IBIS-RANKING">
+                    </header>
+                    <article class="col-left--article">
+                        <h1>IBS Intelligence recognises Kiya.ai as the #1 best-selling financial technology provider in
+                            five categories</h1>
+                        <ul class="list-unstyled pl-0">
+                            <li>
+                                Ranked #1 Global
+                                Compliance
+                                Management -
+                                Kiya.ai Universal
+                                Regtech Solution
+                            </li>
+                            <li>
+                                Ranked #1 Global
+                                Card Management
+                                - Kiya.ai Omnichannel
+                                and Open Finance
+                                Platform
+                            </li>
+                            <li>
+                                Ranked #1 Regional
+                                Leader | APAC
+                            </li>
+                            <li>
+                                Ranked #1 India
+                                Domestic SLT | Leader
+                            </li>
+                            <li>
+                                Ranked #1 India
+                                Domestic SLT Special
+                                Award - Robotic
+                                Process Automation
+                            </li>
+                        </ul>
+                        <a href="" class="btn btn-white">Read more</a>
+                    </article>
+                    <footer class="col-left--footer">
+                        <img class="" src="assets/images/kiya-QR.jpg" alt="kiya.ai-QR_code img">
+                        <section class="reach_us">
+                            <div class="d-flex align-items-center">
+                                <img class="icon" src="assets/images/web.png" alt="website icon">
+                                <a href="https://www.kiya.ai/">www.kiya.ai</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img class="icon" src="assets/images/twitter.png" alt="twitter icon">
+                                <a href="/company/kiya-ai/">/company/kiya-ai/</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img class="icon" src="assets/images/linkedIn.png" alt="linkedIn icon">
+                                <a href="/DigitalkiyaAi">/DigitalkiyaAi</a>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <img class="icon" src="assets/images/facebook.png" alt="facebook icon">
+                                <a href="/digitalkiyaai">/digitalkiyaai</a>
+                            </div>
+                        </section>
+                    </footer>
+                </aside>
+                <div class="col-right">
+                    <img src="assets/images/Cedar-IBSI-SUMMIT-1.png" alt="Cedar-IBSI-SUMMIT LOGO">
+                    <hr>
+                    <article class="col-right-article--one">
+                        <h4 class="mb-1">Kiya.ai Collaborates with Cedar-IBSi
+                            NextGen Core Banking Summit as its
+                            exclusive Metaverse Sponsor</h4>
+                        <p class="text-justify">
+                            Kiya.ai became the official event and Metaverse
+                            Partner for UK’s prominent banking summit,
+                            Cedar-IBSi NextGen Core Banking Summit, London.
+                            Oswald Lopes, Chief Technology Officer, Kiya.ai, was
+                            invited to be the keynote speaker, where he shared
+                            some thought-provoking insights and discussed
+                            the future of digital core banking and how it can
+                            help financial enterprises to keep up with the
+                            ever-evolving industry landscape.
+                        </p>
+                    </article>
+                    <article class="col-right-article--two position-absolute">
+                        <img src="assets/images/FINTECH-INNOVATIVE-CHALLENGE.jpg"
+                            alt="FINTECH-INNOVATIVE-CHALLENGE img">
+                        <h4 class="my-1">
+                            Kiya.ai participates in the FinTech
+                            Innovation Challenge Finale
+                        </h4>
+                        <p class="text-justify">
+                            Kiya.ai participated in the FinTech Innovation
+                            Challenge Finale, where team Kiya.ai
+                            addressed Challenge Statement #1: Digital
+                            Identity Management & E-KYC to support the
+                            growth & application of #FinTech across the
+                            Isle of Man.
+                        </p>
+                        <p class="text-justify my-1">The Innovation Challenge is part of the Isle of
+                            Man's ambitions to build a secure, vibrant, and
+                            sustainable future. It is developed to allow
+                            innovative businesses worldwide to
+                            experience the island's collaborative financial
+                            services sector and showcase their solutions
+                            to core challenges identified across the Isle of
+                            Man business community. </p>
+                        <p class="text-justify">Kiya.ai's Identity Management solution is
+                            designed to streamline and secure the identity
+                            verification process for businesses. The
+                            solution offers a comprehensive lifecycle that
+                            covers all aspects of identity management,
+                            from client onboarding to secure storage of
+                            digital identities and more.
+                        </p>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+</html>
