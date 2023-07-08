@@ -1,11 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Newsletter KIYA</title>
+    <title>Newsletter Kiya.ai - JUNE 2023</title>
     <!-- <link rel="stylesheet" href="style.css"> -->
     <style>
+        /* fonts import */
+        @font-face {
+            font-family: 'Poppins', sans-serif;
+            src: url(assets/fonts/Poppins/Poppins-Regular.ttf);
+            src: url(assets/fonts/Poppins/Poppins-Italic.ttf);
+            src: url(assets/fonts/Poppins/Poppins-Bold.ttf);
+            src: url(assets/fonts/Poppins/Poppins-BoldItalic.ttf);
+            src: url(assets/fonts/Poppins/Poppins-Medium.ttf);
+            src: url(assets/fonts/Poppins/Poppins-SemiBold.ttf);
+            src: url(assets/fonts/Poppins/Poppins-SemiBoldItalic.ttf);
+        }
+
+        /* CSS custom variables */
         :root {
             /* primary colors */
             --hue-primary: 202;
@@ -27,95 +41,132 @@
             --lightness-dark: 17%;
             --clr-dark: hsl(var(--hue-dark), var(--saturation-dark), var(--lightness-dark));
             --white: #fff;
+
+            /* fonts */
+            --font-poppins: 'Poppins', sans-serif;
+            --font-bold: 700;
+            --font-regular: 400;
         }
+
+        /* universal classes */
         *,
         *::before,
         *::after {
             box-sizing: border-box;
             margin: 0;
         }
-        /* utility classes */
-        .mt-1 {
-            margin-top: 1rem;
-        }
-        .mb-1 {
-            margin-bottom: 1rem;
-        }
-        .my-1 {
-            margin-block: 1rem
-        }
-        .pl-0 {
-            padding-left: 0;
-        }
-        .d-flex {
-            display: flex;
-        }
-        .flex-column {
-            flex-direction: column;
-        }
-        .text-center {
-            text-align: center;
-        }
-        .text-right {
-            text-align: right;
-        }
-        .text-justify {
-            text-align: justify;
-        }
-        .btn {
-            padding: 0.25em 0.75em;
-        }
-        .btn-white {
-            background-color: var(--clr-light);
-            color: var(--clr-primary);
-        }
-        .btn-primary {
-            background-color: var(--clr-primary);
-            color: var(--clr-light);
-        }
-        .align-items-center {
-            align-items: center;
-        }
-        .align-self--start {
-            align-self: start;
-        }
-        .position-relative {
-            position: relative;
-        }
-        .position-absolute {
-            position: absolute;
-        }
-        ul.list-unstyled {
-            list-style: none;
-        }
-        header {
-            align-items: start;
-            justify-content: space-between;
-        }
-        main {
-            display: grid;
-            place-items: center;
-        }
+
+        /* HTML element classes */
         body {
             background-color: lightgray;
-            /* margin: 0; */
-            font-family: 'Helvetica', 'Arial', sans-serif;
+            /* font-family: 'Helvetica', 'Arial', sans-serif; */
+            font-family: var(--font-poppins);
         }
+
         p {
             font-size: 0.9rem;
             line-height: 1.3;
         }
-        h1,
-        h4 {
-            line-height: 1.5;
-        }
+
+        /* h1,
+h4 {
+    line-height: 1.5;
+} */
         img {
             max-width: 100%;
             /* display: block; */
         }
+
         a {
             text-decoration: none;
         }
+
+        header {
+            align-items: start;
+            justify-content: space-between;
+        }
+
+        main {
+            display: grid;
+            place-items: center;
+        }
+
+        /* utility classes */
+        .my-0 {
+            margin-block: 0;
+        }
+
+        .mt-1 {
+            margin-top: 1rem;
+        }
+
+        .mb-1 {
+            margin-bottom: 1rem;
+        }
+
+        .my-1 {
+            margin-block: 1rem
+        }
+
+        .pl-0 {
+            padding-left: 0;
+        }
+
+        .d-flex {
+            display: flex;
+        }
+
+        .flex-column {
+            flex-direction: column;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-justify {
+            text-align: justify;
+        }
+
+        .btn {
+            padding: 0.25em 0.75em;
+        }
+
+        .btn-white {
+            background-color: var(--clr-light);
+            color: var(--clr-primary);
+        }
+
+        .btn-primary {
+            background-color: var(--clr-primary);
+            color: var(--clr-light);
+        }
+
+        .align-items-center {
+            align-items: center;
+        }
+
+        .align-self--start {
+            align-self: start;
+        }
+
+        .position-relative {
+            position: relative;
+        }
+
+        .position-absolute {
+            position: absolute;
+        }
+
+        .list-unstyled {
+            list-style: none;
+        }
+
+        /* custom classes */
         .wrapper {
             width: 680px;
             /* height: 100vh; */
@@ -123,116 +174,150 @@
             padding: 2.5rem;
             position: relative;
         }
+
         .header_info--tile {
             color: var(--clr-primary);
+            font-weight: var(--font-regular);
+            margin-bottom: 0.5rem;
         }
+
         .header_info--date {
             background-color: var(--clr-primary);
             font-size: 2rem;
-            padding: 0.6em;
+            padding: 0.4em 0.6em;
             text-transform: uppercase;
             color: var(--clr-light);
             font-weight: normal;
         }
+
         .banner_img {
             width: 95%;
             margin-left: auto;
             display: block;
         }
+
         .article-one {
-            width: 55%;
+            width: 54.5%;
             aspect-ratio: 1;
             background-color: var(--clr-primary);
             padding: 2rem;
             color: var(--clr-light);
             /* position: absolute; */
             left: 0;
-            top: 40%;
+            top: 38%;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
+
         .article-two {
             gap: 5%;
             align-items: end;
             margin-top: 3rem;
             color: var(--clr-dark);
         }
+
         .article-two--img {
             height: fit-content;
             flex: 0 0 55%;
             width: 55%;
         }
+
         .article-two--news {
             flex: 0 0 40%;
         }
+
         /* page 2 */
         .page__two {
             gap: 5%;
         }
+
         .col-left {
             flex: 0 0 45%;
         }
+
         .col-right {
             flex: 0 0 50%;
         }
-        header.col-left--header img {
+
+        .col-left--header img {
             width: 100%;
             display: block;
         }
-        article.col-left--article {
+
+        .col-left--article {
             background-color: var(--clr-primary);
             padding: 2rem 1.5rem;
             color: var(--clr-light);
-            margin-bottom: 3rem;
+            /* margin-bottom: 3rem; */
         }
+
         .col-left--article h1,
         .col-left--article li {
             line-height: 1.5;
             margin-bottom: 1.5rem;
         }
+
         .col-left--article li {
             padding-left: 1rem;
             border-left: 3px solid var(--clr-light);
         }
-        /* .col-left--footer img {
-            width: 40%;
-        } */
+
+        .col-left--footer img {
+            width: 50%;
+        }
+
         .reach_us {
             columns: 2
         }
-        .reach_us div+div {
+
+        .reach_us a {
+            /* color: var(--clr-dark); */
+            /* font-size: 0.8rem; */
+            /* margin-left: 0.5rem; */
+            gap: 0.7rem;
+        }
+
+        .reach_us a+a {
             margin-top: 1rem;
         }
+
         .icon {
-            flex: 0 1 10%;
+            /* flex: 0 1 10%; */
+            width: 30px !important;
+            opacity: 0.7;
         }
-        .reach_us a {
+
+        .reach_us span {
+            font-size: 0.9rem;
             color: var(--clr-dark);
-            font-size: 0.8rem;
-            margin-left: 0.5rem;
         }
+
         .col-right hr {
             height: 2px;
             background-color: var(--clr-primary);
             margin-block: 0.5rem;
         }
+
         .col-right-article--two {
             background-color: var(--clr-primary);
             color: var(--white);
-            padding: 1rem 2rem;
+            padding: 2rem;
             bottom: 0;
             top: 34%;
         }
     </style>
 </head>
+
 <body>
     <main>
         <div class="wrapper my-1">
             <header class="d-flex">
-                <img class="logo" src="assets/images/kiya-logo-with-tagline.png" alt="Kiya-Logo-1">
+                <a href="https://www.kiya.ai/" target="_blank" rel="noopener noreferrer">
+                    <img class="logo" src="assets/images/kiya-logo-with-tagline.png" alt="Kiya-Logo-1">
+                </a>
                 <div class="header_info">
-                    <h1 class="header_info--tile text-right">Newsletter</h1>
+                    <h2 class="header_info--tile text-right">Newsletter</h2>
                     <h1 class="header_info--date text-center">June 2023</h1>
                 </div>
             </header>
@@ -245,7 +330,8 @@
                     keynote speaker at Europe's biggest startup and technology event, VivaTech 2023, in Paris, where he
                     spoke extensively on 'Bharatmeta: Commerce & Culture in Metaverse' and discussed the rise of Indian
                     tech startups in the domain of the Metaverse.</p>
-                <a href="" class="btn btn-white align-self--start">Read more</a>
+                <a href="https://www.aninews.in/news/business/business/bharatmeta-indian-metaverse-platform-showcased-at-vivatech-paris20230616132615/"
+                    target="_blank" rel="noopener noreferrer" class="btn btn-white align-self--start">Read more</a>
             </article>
             <article class="article-two d-flex">
                 <img class="article-two--img" src="assets/images/Group-photo.jpg" alt="Group-photo img">
@@ -257,7 +343,9 @@
                         highlighted the significance of autonomous mobility programs, and showcased the limitless
                         potential of digital innovation. The panel discussion was expertly moderated by Siby Sudhakaran,
                         Secretary General of the IBPC Dubai and Founder of Startup Middle East.</p>
-                    <a href="" class="btn btn-primary align-self--start">Read more</a>
+                    <a href="https://newsonair.com/2023/05/30/g20-digital-innovation-alliance-roadshow-in-dubai-highlights-importance-of-digital-public-goods-and-startups-in-the-global-economy/"
+                        target="_blank" rel="noopener noreferrer" class="btn btn-primary align-self--start">Read
+                        more</a>
                 </div>
             </article>
         </div>
@@ -300,32 +388,36 @@
                                 Process Automation
                             </li>
                         </ul>
-                        <a href="" class="btn btn-white">Read more</a>
+                        <!-- <a href="" class="btn btn-white">Read more</a> -->
                     </article>
                     <footer class="col-left--footer">
-                        <img class="" src="assets/images/kiya-QR.jpg" alt="kiya.ai-QR_code img">
+                        <img class="" src="assets/images/Kiya.ai-QR_code.png" alt="kiya.ai-QR_code img">
                         <section class="reach_us">
-                            <div class="d-flex align-items-center">
-                                <img class="icon" src="assets/images/web.png" alt="website icon">
-                                <a href="https://www.kiya.ai/">www.kiya.ai</a>
-                            </div>
-                            <div class="d-flex align-items-center">
+                            <a class="d-flex align-items-center" href="https://www.kiya.ai/" target="_blank"
+                                rel="noopener noreferrer">
+                                <img class="icon" src="assets/images/web.png" alt="web icon">
+                                <span>kiya.ai</span>
+                            </a><a class="d-flex align-items-center" href="https://twitter.com/DigitalkiyaAi"
+                                target="_blank" rel="noopener noreferrer">
                                 <img class="icon" src="assets/images/twitter.png" alt="twitter icon">
-                                <a href="/company/kiya-ai/">/company/kiya-ai/</a>
-                            </div>
-                            <div class="d-flex align-items-center">
+                                <span>DigitalkiyaAi</span>
+                            </a><a class="d-flex align-items-center" href=" https://in.linkedin.com/company/kiya-ai"
+                                target="_blank" rel="noopener noreferrer">
                                 <img class="icon" src="assets/images/linkedIn.png" alt="linkedIn icon">
-                                <a href="/DigitalkiyaAi">/DigitalkiyaAi</a>
-                            </div>
-                            <div class="d-flex align-items-center">
+                                <span>kiya-ai</span>
+                            </a>
+                            <a class="d-flex align-items-center" href="https://www.facebook.com/digitalkiyaai/"
+                                target="_blank" rel="noopener noreferrer">
                                 <img class="icon" src="assets/images/facebook.png" alt="facebook icon">
-                                <a href="/digitalkiyaai">/digitalkiyaai</a>
-                            </div>
+                                <span>digitalkiyaai</span>
+                            </a>
                         </section>
                     </footer>
                 </aside>
                 <div class="col-right">
-                    <img src="assets/images/Cedar-IBSI-SUMMIT-1.png" alt="Cedar-IBSI-SUMMIT LOGO">
+                    <a href="https://cedaribsi.events/events-2023/" target="_blank" rel="noopener noreferrer">
+                        <img src="assets/images/Cedar-IBSI-SUMMIT-1.png" alt="Cedar-IBSI-SUMMIT LOGO">
+                    </a>
                     <hr>
                     <article class="col-right-article--one">
                         <h4 class="mb-1">Kiya.ai Collaborates with Cedar-IBSi
@@ -334,7 +426,9 @@
                         <p class="text-justify">
                             Kiya.ai became the official event and Metaverse
                             Partner for UK’s prominent banking summit,
-                            Cedar-IBSi NextGen Core Banking Summit, London.
+                            <a href="https://cedaribsi.events/event/cedar-ibsi-nextgen-core-banking-summit-london/"
+                                target="_blank" rel="noopener noreferrer" style="font-weight: 700;">Cedar-IBSi NextGen
+                                Core Banking Summit, London</a>.
                             Oswald Lopes, Chief Technology Officer, Kiya.ai, was
                             invited to be the keynote speaker, where he shared
                             some thought-provoking insights and discussed
@@ -344,8 +438,11 @@
                         </p>
                     </article>
                     <article class="col-right-article--two position-absolute">
-                        <img src="assets/images/FINTECH-INNOVATIVE-CHALLENGE.jpg"
-                            alt="FINTECH-INNOVATIVE-CHALLENGE img">
+                        <a href="https://www.digitalisleofman.com/fintechchallenge/" target="_blank"
+                            rel="noopener noreferrer">
+                            <img src="assets/images/FINTECH-INNOVATIVE-CHALLENGE.jpg" style="width: 100%;"
+                                alt="FINTECH-INNOVATIVE-CHALLENGE img">
+                        </a>
                         <h4 class="my-1">
                             Kiya.ai participates in the FinTech
                             Innovation Challenge Finale
@@ -380,4 +477,5 @@
         </div>
     </main>
 </body>
+
 </html>
